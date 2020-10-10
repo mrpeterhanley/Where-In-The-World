@@ -4,6 +4,7 @@
   flex-direction: column;
   justify-content: space-between;
   box-shadow: var(--box-shadow);
+  height: 350px;
 }
 
 .card__image {
