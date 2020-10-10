@@ -7,9 +7,10 @@
 }
 
 .card__image {
-  max-width: 470px;
-  width: 100%;
-  height: auto;
+  height: 180px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
 
