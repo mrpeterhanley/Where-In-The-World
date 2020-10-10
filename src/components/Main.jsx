@@ -51,6 +51,7 @@ function Main(props) {
                     )
                 }) : <p>Sorry! No countries found...</p>}
             </div>
+            <footer>Built with &hearts; in Melbourne, Australia by Peter Hanley</footer>
         </div>
     )
 }
