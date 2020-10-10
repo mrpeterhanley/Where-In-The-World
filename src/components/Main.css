@@ -14,10 +14,12 @@
 .search__bar {
   margin: 40px 0;
   border: none;
-  padding: 15px;
+  padding: 15px 45px;
   max-width: 500px;
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
+  background-repeat: no-repeat;
+  background-position: 10px center;
 }
 
 .dark::placeholder {

@@ -8,6 +8,9 @@ function Main(props) {
     const [countryList, setCountryList] = useState([]);
     const [nameSearch, setNameSearch] = useState("");
 
+    const lightModeSearchIcon = `url(${process.env.PUBLIC_URL + "./icons/lm_search.svg"})`;
+    const darkModeSearchIcon = `url(${process.env.PUBLIC_URL + "./icons/dm_search.svg"})`;
+
     useEffect(() => {
         
         const apiUrl = function() {
@@ -33,7 +36,7 @@ function Main(props) {
             className={`search__bar ${darkMode? "dark" : "light"}`} 
             type="text" 
             placeholder="Search for a country..."
-            style={{backgroundColor: darkMode? "var(--dm-element)" : "var(--white)", color: darkMode? "var(--white)" : "var(--lm-text)"}}/>
+            style={{backgroundImage: darkMode? darkModeSearchIcon : lightModeSearchIcon, backgroundColor: darkMode? "var(--dm-element)" : "var(--white)", color: darkMode? "var(--white)" : "var(--lm-text)"}}/>
             <div className="card__wrapper" >
                 
                 {countryList.length? countryList.map((country, index) => {
