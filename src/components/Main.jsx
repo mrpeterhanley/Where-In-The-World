@@ -5,41 +5,70 @@ import Card from "./Card";
 function Main(props) {
 
     const darkMode = props.mode;
-    const [countryList, setCountryList] = useState([]);
+    const [fullCountryList, setFullCountryList] = useState([]);
+    const [displayCountryList, setDisplayCountryList] = useState([]);
     const [nameSearch, setNameSearch] = useState("");
+    const [currRegion, setRegion] = useState("");
 
     const lightModeSearchIcon = `url(${process.env.PUBLIC_URL + "./icons/lm_search.svg"})`;
     const darkModeSearchIcon = `url(${process.env.PUBLIC_URL + "./icons/dm_search.svg"})`;
 
+    function dropDownChange(e) {
+        setRegion(e.currentTarget.value);
+    }
+
     useEffect(() => {
-        
-        const apiUrl = function() {
-            if (!nameSearch.length) {
-                return `https://restcountries.eu/rest/v2/all?fields=name;population;region;capital;flag`;
-            } else {
-                return `https://restcountries.eu/rest/v2/name/${nameSearch}?fields=name;population;region;capital;flag`;
-            }
+
+        if (nameSearch.length && currRegion) {
+            setDisplayCountryList(fullCountryList.filter(country => ((country.name.toLowerCase().includes(nameSearch.toLowerCase()) && (country.region === currRegion)))));
+        } 
+        else if (nameSearch.length) {
+            setDisplayCountryList(fullCountryList.filter(country => ((country.name.toLowerCase().includes(nameSearch.toLowerCase())))));
         }
+        else if (currRegion) {
+            setDisplayCountryList(fullCountryList.filter(country => (country.region === currRegion)));
+        } else {
+            setDisplayCountryList(fullCountryList);
+        }
+
+    },[nameSearch, currRegion, setDisplayCountryList, fullCountryList])
+
+    useEffect(() => {
+        const apiUrl = `https://restcountries.eu/rest/v2/all?fields=name;population;region;capital;flag`;
         
-        fetch(apiUrl())
+        fetch(apiUrl)
           .then((res) => res.json())
           .then((data) => {
-            setCountryList(data);
+            setFullCountryList(data);
+            setDisplayCountryList(data);
           }).catch(console.error);
-    }, [setCountryList, nameSearch]);
+          
+    }, []);
+
 
     return (
         <div className="main__wrapper" style={{backgroundColor: darkMode? "var(--dm-background)" : "var(--lm-background)", color: darkMode? "var(--white)" : "var(--lm-text)"}}>
-            <input
-            value={nameSearch}
-            onChange={(e) => setNameSearch(e.target.value)}
-            className={`search__bar ${darkMode? "dark" : "light"}`} 
-            type="text" 
-            placeholder="Search for a country..."
-            style={{backgroundImage: darkMode? darkModeSearchIcon : lightModeSearchIcon, backgroundColor: darkMode? "var(--dm-element)" : "var(--white)", color: darkMode? "var(--white)" : "var(--lm-text)"}}/>
+            <form>
+                <input
+                value={nameSearch}
+                onChange={(e) => setNameSearch(e.target.value)}
+                className={`search__bar ${darkMode? "dark" : "light"}`} 
+                type="text" 
+                placeholder="Search for a country..."
+                style={{backgroundImage: darkMode? darkModeSearchIcon : lightModeSearchIcon}}/>
+                <select className={`drop__down ${darkMode? "dark" : "light"}`} value={currRegion} onChange={dropDownChange}>
+                    <option value="">Filter by Region</option>
+                    <option value="Africa">Africa</option>
+                    <option value="Americas">Americas</option>
+                    <option value="Asia">Asia</option>
+                    <option value="Europe">Europe</option>
+                    <option value="Oceania">Oceania</option>
+                </select>
+            </form>
+        
             <div className="card__wrapper" >
                 
-                {countryList.length? countryList.map((country, index) => {
+                {displayCountryList.length? displayCountryList.map((country, index) => {
                     return (
                         <Card bgcolor={darkMode? "var(--dm-element)" : "var(--white)"} 
                         key={index} 
