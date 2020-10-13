@@ -1,6 +1,5 @@
 header {
   padding: 25px;
-  height: 12vh;
   display: flex;
   align-items: center;
   position: relative;
@@ -36,7 +35,6 @@ header {
 @media screen and (max-width: 450px) {
   header {
     flex-direction: column;
-    min-height: 15vh;
   }
 
   .header__title {

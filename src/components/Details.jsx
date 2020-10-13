@@ -65,7 +65,7 @@ const Details = (props) => {
             >Back</Link>
           </div>
           <div className="wrapper__main">
-            <div className="details__flag" style={{backgroundImage: `url(${countryDetails.flag})`}}/>
+            <img className="details__flag" src={countryDetails.flag} alt={countryDetails.name}/>
             <div className="details__content">
               <h1 className="content__title">{countryDetails.name}</h1>
               <div className="content__column">

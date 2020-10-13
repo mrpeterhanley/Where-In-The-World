@@ -17,15 +17,14 @@
 
 .wrapper__main {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: max-content 1fr;
   grid-gap: 100px;
 }
 
 .details__flag {
-  background-position: top center;
-  background-size: 100%;
-  background-repeat: no-repeat;
-  min-height: 300px;
+  max-width: 500px;
+  width: 100%;
+  height: auto;
 }
 
 .details__content {
@@ -74,6 +73,13 @@
   box-shadow: var(--box-shadow);
 }
 
+@media screen and (max-width: 1400px) {
+  .details__content {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 @media screen and (max-width: 1000px) {
   .wrapper__main {
     grid-template-columns: 1fr;
@@ -84,11 +90,6 @@
 @media screen and (max-width: 700px) {
   .details__wrapper {
     padding: 30px 50px;
-  }
-
-  .details__content {
-    display: flex;
-    flex-direction: column;
   }
 
   .content__title {
