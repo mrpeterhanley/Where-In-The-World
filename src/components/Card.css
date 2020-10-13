@@ -5,6 +5,7 @@
   justify-content: space-between;
   box-shadow: var(--box-shadow);
   height: 350px;
+  text-decoration: none;
 }
 
 .card__image {

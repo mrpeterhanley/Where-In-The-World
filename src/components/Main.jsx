@@ -70,7 +70,8 @@ function Main(props) {
                 
                 {displayCountryList.length? displayCountryList.map((country, index) => {
                     return (
-                        <Card bgcolor={darkMode? "var(--dm-element)" : "var(--white)"} 
+                        <Card bgcolor={darkMode? "var(--dm-element)" : "var(--white)"}
+                        color={darkMode? "var(--white)" : "var(--lm-text)"} 
                         key={index} 
                         flag={country.flag} 
                         capital={country.capital} 

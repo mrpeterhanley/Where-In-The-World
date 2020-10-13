@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
+import {Router} from "@reach/router"
 import './App.css';
 import Header from "./Header";
 import Main from "./Main";
+import Details from "./Details";
 
 function App() {
 
@@ -12,9 +14,12 @@ function App() {
   }
 
   return (
-    <div className="wrapper">
+    <div>
       <Header mode={darkMode} setmode={toggleDarkMode}/>
-      <Main mode={darkMode} setmode={toggleDarkMode} />
+      <Router className="wrapper">
+        <Main path="/" mode={darkMode} />
+        <Details path="/details/:name" mode={darkMode} />
+      </Router>
     </div>
   );
 }
