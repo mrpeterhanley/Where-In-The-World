@@ -7,7 +7,7 @@ import Details from "./Details";
 
 function App() {
 
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
 
   function toggleDarkMode() {
     setDarkMode(!darkMode);

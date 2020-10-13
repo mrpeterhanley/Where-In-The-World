@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "@reach/router"
 import './Card.css';
 
 function Card(props) {
     return (
-        <a href={`/details/${props.name}`} className="card" style={{backgroundColor: `${props.bgcolor}`}}>
+        <Link to={`/details/${props.name}`} className="card" style={{backgroundColor: `${props.bgcolor}`}}>
             <div className="card__image" style={{backgroundImage: `url(${props.flag})`}}/>
             <div className="card__body" style={{color: `${props.color}`}}>
                 <h3 className="body__title">{props.name}</h3>
@@ -11,7 +12,7 @@ function Card(props) {
                 <p className="body__item"><span className="item__title">Region:</span> {props.region}</p>
                 <p className="body__item"><span className="item__title">Capital:</span> {props.capital}</p>
             </div>
-        </a>
+        </Link>
     )
 }
 

@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import {Link} from "@reach/router"
 import "./Details.css";
 
@@ -17,7 +18,7 @@ const Details = (props) => {
     let countryShortName = countryLongName[0];
 
     return (
-      <a style={{backgroundColor: darkMode? "var(--dm-element)" : "var(--white)", color: darkMode? "var(--white)" : "var(--lm-text)"}} href={`/details/${country.name}`} key={country.alpha3Code} className="border__button">{countryShortName}</a>
+      <Link style={{backgroundColor: darkMode? "var(--dm-element)" : "var(--white)", color: darkMode? "var(--white)" : "var(--lm-text)"}} to={`/details/${country.name}`} key={country.alpha3Code} className="border__button">{countryShortName}</Link>
     )
   }
 
@@ -61,7 +62,7 @@ const Details = (props) => {
             <Link to="/" 
             className="back__button"
             style={{backgroundColor: darkMode? "var(--dm-element)" : "var(--white)", color: darkMode? "var(--white)" : "var(--lm-text)"}}
-            >Back</Link>
+            ><ArrowBackIcon/><p>Back</p></Link>
           </div>
           <div className="wrapper__main">
             <img className="details__flag" src={countryDetails.flag} alt={countryDetails.name}/>
