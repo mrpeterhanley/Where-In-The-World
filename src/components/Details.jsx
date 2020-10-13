@@ -34,7 +34,7 @@ const Details = (props) => {
       .then((res) => res.json())
       .then((data) => {
         setBorderCountryDetails(data)
-        console.log(data)
+  
       }).catch(console.error);
     }
 
@@ -51,7 +51,6 @@ const Details = (props) => {
         setCurrencies(data[0].currencies)
         setLanguages(data[0].languages)
         setBorderCountries(data[0].borders)
-        console.log(data[0])
       }).catch(console.error);
           
   }, [props.name]);
