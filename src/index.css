@@ -15,3 +15,10 @@
   padding: 0;
   font-family: "Nunito Sans", sans-serif;
 }
+
+#root > div {
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  flex-direction: column;
+}

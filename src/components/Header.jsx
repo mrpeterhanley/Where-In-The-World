@@ -8,7 +8,7 @@ function Header(props) {
 
     const darkMode = props.mode;
 
-    const [switchState, setSwitchState] = useState(true);
+    const [switchState, setSwitchState] = useState(darkMode);
 
     function switchChange() {
         props.setmode();
