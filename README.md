@@ -6,4 +6,7 @@ This application was built with React, and uses the <a href="https://restcountri
 <br>
 I hope you enjoy using it!<br>
 <br>
-<strong>Dependences:</strong> React / React-DOM, Reach Router, Material-UI/Core, Material-UI/Icons
+<strong>Dependences:</strong> React / React-DOM, Reach Router, Material-UI/Core, Material-UI/Icons<br>
+<br>
+<strong>Build:</strong> run "npm run build"<br>
+<strong>Deploy:</strong> run "npm run start"
