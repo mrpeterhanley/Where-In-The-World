@@ -8,6 +8,11 @@
   text-decoration: none;
 }
 
+.card:hover {
+  transform: scale(1.1);
+  transition: 0.2s ease-in-out;
+}
+
 .card__image {
   height: 180px;
   background-size: cover;
@@ -30,4 +35,10 @@
 
 .body__item {
   margin: 5px 0;
+}
+
+@media screen and (max-width: 600px) {
+  .card:hover {
+    transform: none;
+  }
 }

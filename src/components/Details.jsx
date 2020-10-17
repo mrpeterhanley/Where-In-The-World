@@ -14,11 +14,8 @@ const Details = (props) => {
 
   function printBorderCountryButton(country) {
 
-    let countryLongName = country.name.split(" ");
-    let countryShortName = countryLongName[0];
-
     return (
-      <Link style={{backgroundColor: darkMode? "var(--dm-element)" : "var(--white)", color: darkMode? "var(--white)" : "var(--lm-text)"}} to={`/details/${country.name}`} key={country.alpha3Code} className="border__button">{countryShortName}</Link>
+      <Link style={{backgroundColor: darkMode? "var(--dm-element)" : "var(--white)", color: darkMode? "var(--white)" : "var(--lm-text)"}} to={`/details/${country.name}`} key={country.alpha3Code} className="border__button">{country.name}</Link>
     )
   }
 

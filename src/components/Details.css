@@ -21,6 +21,11 @@
   justify-content: space-between;
 }
 
+.back__button:hover {
+  color: var(--lm-text) !important;
+  background-color: khaki !important;
+}
+
 .wrapper__main {
   display: grid;
   grid-template-columns: max-content 1fr;
@@ -79,6 +84,11 @@
   box-shadow: var(--box-shadow);
 }
 
+.border__button:hover {
+  color: var(--lm-text) !important;
+  background-color: khaki !important;
+}
+
 @media screen and (max-width: 1400px) {
   .details__content {
     display: flex;
@@ -113,5 +123,6 @@
 
   .border__countries {
     margin-top: 10px;
+    margin-left: -10px;
   }
 }
